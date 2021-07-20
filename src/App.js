@@ -51,7 +51,6 @@ const App = () => {
     <div className="app">
       <h1>Tic Tac Toe</h1>
       <StatusMessage winner={winner} current={current} />
-      {/* <h2>{message}</h2> */}
       <Board board={current.board} handleSquareClick={handleSquareClick} />
       <History history={history} moveTo={moveTo} currentMove={currentMove} />
     </div>
