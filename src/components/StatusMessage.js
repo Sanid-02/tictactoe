@@ -8,13 +8,41 @@ const StatusMessage = ({ winner, current }) => {
     // : `Next Player is ${current.isXNext ? "X" : "O"}`;
 
     // {winner && `Winner is ${winner}`} => Always retun Boolean values.
-    <h2>
-      {winner && `Winner is ${winner}`}
-      {!winner &&
-        !noMovesLeft &&
-        `Next Player is ${current.isXNext ? "X" : "O"}`}
-      {!winner && noMovesLeft && "X and O tied"}
-    </h2>
+    // <h2>
+    //   {winner && `Winner is ${winner}`}
+    //   {!winner &&
+    //     !noMovesLeft &&
+    //     `Next Player is ${current.isXNext ? "X" : "O"}`}
+    //   {!winner && noMovesLeft && "X and O tied"}
+    // </h2>
+
+    <div className="status-message">
+      {winner && (
+        <>
+          Winner is{" "}
+          <span className={winner === "X" ? "text-green" : "text-orange"}>
+            {winner}
+          </span>
+        </>
+      )}
+      {!winner && !noMovesLeft && (
+        <>
+          Next Player is{" "}
+          <span
+            className={current.isXNext === true ? "text-green" : "text-orange"}
+          >
+            {" "}
+            {current.isXNext ? "X" : "O"}
+          </span>
+        </>
+      )}
+      {!winner && noMovesLeft && (
+        <>
+          <span className="text-green">X</span> and{" "}
+          <span className="text-orange">O</span> tied.
+        </>
+      )}
+    </div>
   );
 };
 
